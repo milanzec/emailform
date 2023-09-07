@@ -1,4 +1,22 @@
-<form>
-    <input name="email" type="text" [(ngModel)]="email" />
+<form #emailForm="ngForm">
+    <input 
+    pattern=".+@.+\..+"
+    required 
+    name="email" 
+    type="email" 
+    [(ngModel)]="email" 
+    />
     {{email}}
 </form>
+
+<hr>
+
+<div>
+    Is form valid : {{emailForm.valid}}
+</div>
+<div>
+    The form values: {{emailForm.value | json}}
+</div>
+<div>
+    Email validation errors: {{emailForm.controls['email'].errors | json}}
+</div>
