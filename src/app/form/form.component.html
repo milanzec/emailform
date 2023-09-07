@@ -1,6 +1,5 @@
-<form #emailForm="ngForm">
+<form (ngSubmit)="onSubmit()" #emailForm="ngForm">
     <input pattern=".+@.+\..+" required name="email" type="email" [(ngModel)]="email" #emailControl="ngModel" />
-    {{email}}
     <ng-container *ngIf="emailControl.invalid && emailControl.touched">
         <div *ngIf="emailControl.errors?.['required']">
             You must enter an email
@@ -9,6 +8,9 @@
             Please enter a valid email
         </div>
     </ng-container>
+    <button [disabled]="emailForm.invalid">
+        Submit
+    </button>
 </form>
 
 <hr>

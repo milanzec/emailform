@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  email:string = ''
+  email: string = ''
 
+  onSubmit(){
+    console.log(this.email)
+  }
 
 }
